@@ -1,12 +1,9 @@
 .NameColor{
-    color: rgb(28, 243, 0) !important;
-    background-color: black;
+    /* color: rgb(255, 255, 255) !important; */
+    /* background-color: rgb(211, 197, 197); */
 }
 
 .MyBg {
-    background-color: coral !important; 
+    background-color: rgb(194, 71, 71) !important; 
 }
 
-body {
-    background-color: coral !important; 
-}

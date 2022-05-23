@@ -13,7 +13,7 @@ export default function Home() {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
             <Nav className="me-auto">
-              <Navbar.Brand href="/LogIn/loggedIn" className="NameColor">Cook4Me</Navbar.Brand>
+              <Navbar.Brand href="/" className="NameColor">Cook4Me</Navbar.Brand>
             </Nav>
             <Nav>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -31,7 +31,7 @@ export default function Home() {
 
                 <Nav.Link href="#deets">More deets</Nav.Link>
 
-                <Link href="/LogIn/loggedIn">
+                <Link href="/LogIn/loginForm">
                   <Button variant="success">
                     Login
                   </Button>
