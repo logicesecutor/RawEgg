@@ -1,12 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import Link from 'next/link';
 //import styles from '../styles/Home.module.css'
 
-import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap'
+import { Navbar, Container, Nav, NavDropdown, Button, ListGroup } from 'react-bootstrap'
 
 
-export default function Home() {
+export default function Home({ libraries }) {
+  console.log('libraries', libraries);
   return (
     <>
       <div className='MyBg'>
@@ -42,7 +44,52 @@ export default function Home() {
 
           </Container>
         </Navbar>
+        {/* <ListGroup>
+          {
+            libraries.map(books => {
+              return <ListGroup.Item>
+                {books.autor}
+              </ListGroup.Item>
+            })
+          }
+        </ListGroup> */}
       </div>
     </>
   )
+}
+
+
+export async function getStaticProps() {
+  const client = new ApolloClient({
+    uri: 'http://localhost:4000',
+    cache: new InMemoryCache()
+  });
+
+  const { data } = await client.query({
+    query: gql`
+      query GetBooksByLibrary {
+
+          libraries {
+
+            books {
+
+              author {
+
+                name
+
+              }
+
+            }
+
+          }
+
+          }
+    `
+  });
+
+  return {
+    props: {
+      libraries: data.libraries
+    }
+  }
 }
